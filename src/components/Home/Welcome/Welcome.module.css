@@ -3,7 +3,7 @@
   margin-bottom: 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  row-gap: 24px;
 }
 
 .info {
@@ -14,6 +14,9 @@
   background-color: var(--info-background);
   border-radius: 30px;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .title {
@@ -41,7 +44,7 @@
   font-weight: 700;
   line-height: 1.6;
   display: inline-flex;
-  padding: 16px;
+  padding: 16px 88px;
   justify-content: center;
   align-items: center;
   background-color: var(--intensive-yellow);
@@ -58,6 +61,8 @@
 }
 
 .image {
+  width: 200px;
+  height: 200px;
 }
 
 .icon {
@@ -68,7 +73,8 @@
   .welcome {
     display: grid;
     grid-template-columns: 60% 40%;
-    width: 100%;
+    width: calc(100% - 24px);
+    column-gap: 24px;
   }
 
   .info {
@@ -85,7 +91,6 @@
 
 @media (min-width: 1440px) {
   .info {
-    width: 720px;
     padding: 98px 108px 98px 64px;
   }
 
@@ -98,7 +103,6 @@
   }
 
   .decor {
-    width: 568px;
   }
 
   .image {

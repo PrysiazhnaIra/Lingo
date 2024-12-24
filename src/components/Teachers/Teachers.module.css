@@ -1,0 +1,29 @@
+.wrapper {
+}
+
+.btns {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn {
+  display: inline-flex;
+  padding: 16px 48px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background: var(--intensive-yellow);
+  color: var(--black);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+}

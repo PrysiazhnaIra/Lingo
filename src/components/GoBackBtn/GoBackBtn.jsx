@@ -1,10 +1,10 @@
-import { useNavigate } from 'react-router-dom';
-import css from './GoBackBtn.module.css';
+import { useNavigate } from "react-router-dom";
+import css from "./GoBackBtn.module.css";
 
 export default function GoBackBtn() {
   const navigate = useNavigate();
   const handleBtnClick = () => {
-    navigate('/catalog');
+    navigate("/");
   };
 
   return (

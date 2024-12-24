@@ -9,6 +9,9 @@ const HomePage = lazy(() =>
 const NotFoundPage = lazy(() =>
   import("../../pages/NotFoundPage/NotFoundPage.jsx")
 );
+const TeachersPage = lazy(() =>
+  import("../../pages/TeachersPage/TeachersPage.jsx")
+);
 
 function App() {
   return (
@@ -16,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/*" element={<NotFoundPage />} />
+        <Route path="/teachers" element={<TeachersPage />} />
       </Routes>
     </Suspense>
   );

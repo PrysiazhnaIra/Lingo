@@ -12,6 +12,7 @@
   --peach: #f0aa8d;
   --light-peach: #f4c8ba;
   --black: #121417;
+  --gray: rgba(18, 20, 23, 0.7);
   --white: #fff;
   --royal-blue: #338af3;
   --golden-yellow: #ffda44;
@@ -72,6 +73,12 @@ a {
 button {
   cursor: pointer;
   border: none;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  transform: scale(1.05);
 }
 
 input,

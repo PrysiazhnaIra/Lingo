@@ -1,6 +1,7 @@
 import { FaApple } from "react-icons/fa";
 import face from "../../../../public/face.png";
 import css from "./Welcome.module.css";
+import { NavLink } from "react-router-dom";
 
 export default function Welcome() {
   return (
@@ -15,9 +16,11 @@ export default function Welcome() {
           Elevate your language proficiency to new heights by connecting with
           highly qualified and experienced tutors.
         </p>
-        <button type="button" className={css.btn}>
-          Get started
-        </button>
+        <NavLink to="/teachers">
+          <button type="button" className={css.btn}>
+            Get started
+          </button>
+        </NavLink>
       </div>
       <div className={css.decor}>
         <img src={face} alt="Happy student" className={css.image} />
