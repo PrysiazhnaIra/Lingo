@@ -1,0 +1,27 @@
+.flag {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(
+    to bottom,
+    var(--royal-blue) 50%,
+    var(--golden-yellow) 50%
+  );
+}
+
+.logoText {
+  display: none;
+}
+
+.logoBlock {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+@media (min-width: 480px) {
+  .logoText {
+    display: block;
+  }
+}

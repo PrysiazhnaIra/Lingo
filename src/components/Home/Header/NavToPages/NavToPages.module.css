@@ -1,0 +1,10 @@
+.link {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+@media (min-width: 480px) {
+  .link {
+    font-size: 16px;
+  }
+}

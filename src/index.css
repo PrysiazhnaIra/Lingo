@@ -1,0 +1,94 @@
+@import "modern-normalize";
+
+:root {
+  --intensive-yellow: #f4c550;
+  --yellow: #fbe9ba;
+  --olive: #9fbaae;
+  --light-olive: #cbded3;
+  --dark-blue: #9fb7ce;
+  --blue: #bfd6ea;
+  --almost-red: #e0a39a;
+  --pink: #f2c0bd;
+  --peach: #f0aa8d;
+  --light-peach: #f4c8ba;
+  --black: #121417;
+  --white: #fff;
+  --royal-blue: #338af3;
+  --golden-yellow: #ffda44;
+  --info-background: #f8f8f8;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--white);
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

@@ -1,0 +1,22 @@
+.btn {
+  display: inline-flex;
+  padding: 16px 88px;
+  justify-content: center;
+  align-items: center;
+  background: var(--yellow);
+  border-radius: 12px;
+  border: none;
+  color: var(--black);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.6;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background: var(--intensive-yellow);
+  transform: scale(1.05);
+}

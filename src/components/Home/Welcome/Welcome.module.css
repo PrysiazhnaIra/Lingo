@@ -1,0 +1,108 @@
+.welcome {
+  margin-top: 30px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info {
+  color: var(--black);
+  font-family: Roboto;
+  letter-spacing: -0.02em;
+  font-style: normal;
+  background-color: var(--info-background);
+  border-radius: 30px;
+  padding: 15px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.peaceOfTitle {
+  font-style: italic;
+  font-weight: 400;
+  background-color: var(--yellow);
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.btn {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.6;
+  display: inline-flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--intensive-yellow);
+  border-radius: 12px;
+}
+
+.decor {
+  background-color: var(--yellow);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+}
+
+.icon {
+  fill: linear-gradient(180deg, var(--yellow) 0%, var(--intensive-yellow) 100%);
+}
+
+@media (min-width: 768px) {
+  .welcome {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: 100%;
+  }
+
+  .info {
+    padding: 64px;
+  }
+}
+
+@media (min-width: 992px) {
+  .title {
+    font-size: 48px;
+    margin-bottom: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .info {
+    width: 720px;
+    padding: 98px 108px 98px 64px;
+  }
+
+  .text {
+    margin-bottom: 64px;
+  }
+
+  .btn {
+    padding: 16px 88px;
+  }
+
+  .decor {
+    width: 568px;
+  }
+
+  .image {
+    width: 339px;
+    height: 339px;
+  }
+}
