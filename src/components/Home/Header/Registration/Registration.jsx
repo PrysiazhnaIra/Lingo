@@ -41,10 +41,10 @@ export default function Registration() {
   };
 
   return (
-    <div>
-      <IoMdClose />
-      <h2>Registration</h2>
-      <p>
+    <div className={css.wrapper}>
+      <IoMdClose className={css.closeIcon} />
+      <h2 className={css.title}>Registration</h2>
+      <p className={css.text}>
         Thank you for your interest in our platform! In order to register, we
         need some information. Please provide us with the following information
       </p>
@@ -52,8 +52,9 @@ export default function Registration() {
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
+        className={css.formWrap}
       >
-        <Form>
+        <Form className={css.form}>
           <Field
             type="text"
             name="name"
@@ -69,27 +70,25 @@ export default function Registration() {
           />
           <ErrorMessage name="email" component="span" className={css.error} />
 
-          <div>
-            <Field
-              name="password"
-              type="password"
-              placeholder="Password"
-              className={css.input}
-            />
-            <button
-              type="button"
-              onClick={togglePasswordVisibility}
-              className={css.iconBtn}
-            >
-              <FaRegEyeSlash />
-              <FaRegEye />
-            </button>
-            <ErrorMessage
-              name="password"
-              component="span"
-              className={css.error}
-            />
-          </div>
+          <Field
+            name="password"
+            type="password"
+            placeholder="Password"
+            className={css.input}
+          />
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className={css.iconBtn}
+          >
+            <FaRegEyeSlash />
+            <FaRegEye />
+          </button>
+          <ErrorMessage
+            name="password"
+            component="span"
+            className={css.error}
+          />
 
           <button type="submit" className={css.btnSubmit}>
             Sign Up

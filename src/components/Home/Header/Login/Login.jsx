@@ -57,27 +57,26 @@ export default function Login() {
           />
           <ErrorMessage name="email" component="span" className={css.error} />
 
-          <div className={css.passwordBlock}>
-            <Field
-              name="password"
-              type="password"
-              placeholder="Password"
-              className={css.input}
-            />
-            <button
-              type="button"
-              onClick={togglePasswordVisibility}
-              className={css.iconBtn}
-            >
-              <FaRegEyeSlash className={css.closedEye} />
-              <FaRegEye className={css.openEye} />
-            </button>
-            <ErrorMessage
-              name="password"
-              component="span"
-              className={css.error}
-            />
-          </div>
+          <Field
+            name="password"
+            type="password"
+            placeholder="Password"
+            className={css.input}
+          />
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className={css.iconBtn}
+          >
+            <FaRegEyeSlash className={css.closedEye} />
+            <FaRegEye className={css.openEye} />
+          </button>
+          <ErrorMessage
+            name="password"
+            component="span"
+            className={css.error}
+          />
+
           <button type="submit" className={css.btnSubmit}>
             Log In
           </button>
