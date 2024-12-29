@@ -4,7 +4,9 @@ import css from "./Login.module.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import * as Yup from "yup";
-import GoBackBtn from "../../../GoBackBtn/GoBackBtn.jsx";
+import Modal from "react-modal";
+
+Modal.setAppElement("#root");
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -21,7 +23,7 @@ const validationSchema = Yup.object({
     .required("Password is required"),
 });
 
-export default function Login() {
+export default function Login({ isOpen, onClose }) {
   const initialValues = {
     email: "",
     password: "",
@@ -35,57 +37,63 @@ export default function Login() {
   };
 
   return (
-    <div className={css.wrapper}>
-      <IoMdClose className={css.closeIcon} />
-      <h2 className={css.title}>Login</h2>
-      <p className={css.text}>
-        Welcome back! Please enter your credentials to access your account and
-        continue your search for an teacher.
-      </p>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={validationSchema}
-        className={css.formWrap}
-      >
-        <Form className={css.form}>
-          <Field
-            type="email"
-            name="email"
-            placeholder="Email"
-            className={css.input}
-          />
-          <ErrorMessage name="email" component="span" className={css.error} />
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      className={css.modal}
+      overlayClassName={css.overlay}
+    >
+      <div className={css.wrapper}>
+        <IoMdClose className={css.closeIcon} onClick={onClose} />
+        <h2 className={css.title}>Login</h2>
+        <p className={css.text}>
+          Welcome back! Please enter your credentials to access your account and
+          continue your search for an teacher.
+        </p>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={validationSchema}
+          className={css.formWrap}
+        >
+          <Form className={css.form}>
+            <Field
+              type="email"
+              name="email"
+              placeholder="Email"
+              className={css.input}
+            />
+            <ErrorMessage name="email" component="span" className={css.error} />
 
-          <Field
-            name="password"
-            type={showPassword ? "text" : "password"}
-            placeholder="Password"
-            className={css.input}
-          />
-          <button
-            type="button"
-            onClick={togglePasswordVisibility}
-            className={css.iconBtn}
-          >
-            {showPassword ? (
-              <FaRegEye className={css.openEye} />
-            ) : (
-              <FaRegEyeSlash className={css.closedEye} />
-            )}
-          </button>
-          <ErrorMessage
-            name="password"
-            component="span"
-            className={css.error}
-          />
+            <Field
+              name="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              className={css.input}
+            />
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              className={css.iconBtn}
+            >
+              {showPassword ? (
+                <FaRegEye className={css.openEye} />
+              ) : (
+                <FaRegEyeSlash className={css.closedEye} />
+              )}
+            </button>
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={css.error}
+            />
 
-          <button type="submit" className={css.btnSubmit}>
-            Log In
-          </button>
-        </Form>
-      </Formik>
-      <GoBackBtn />
-    </div>
+            <button type="submit" className={css.btnSubmit}>
+              Log In
+            </button>
+          </Form>
+        </Formik>
+      </div>
+    </Modal>
   );
 }

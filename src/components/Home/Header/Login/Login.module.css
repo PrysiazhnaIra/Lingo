@@ -76,7 +76,7 @@
 
 .iconBtn {
   position: absolute;
-  top: 35%;
+  top: 40%;
   right: 3%;
   background-color: transparent;
 }
@@ -96,7 +96,6 @@
   border-radius: 12px;
   background: var(--intensive-yellow);
   margin-top: 24px;
-  margin-bottom: 24px;
   color: var(--black);
   font-family: Roboto;
   font-size: 18px;
@@ -109,4 +108,25 @@
   .wrapper {
     padding: 64px;
   }
+}
+
+/* modal */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal {
+  position: relative;
+  max-width: 566px;
+  background-color: white;
+  border-radius: 12px;
+  overflow-y: auto;
 }
