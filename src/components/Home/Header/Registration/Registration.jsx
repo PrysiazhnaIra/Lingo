@@ -37,7 +37,7 @@ export default function Registration() {
 
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+    setShowPassword((prevState) => !prevState);
   };
 
   return (
@@ -72,7 +72,7 @@ export default function Registration() {
 
           <Field
             name="password"
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
             className={css.input}
           />
@@ -81,8 +81,11 @@ export default function Registration() {
             onClick={togglePasswordVisibility}
             className={css.iconBtn}
           >
-            <FaRegEyeSlash />
-            <FaRegEye />
+            {showPassword ? (
+              <FaRegEye className={css.openEye} />
+            ) : (
+              <FaRegEyeSlash className={css.closedEye} />
+            )}
           </button>
           <ErrorMessage
             name="password"
