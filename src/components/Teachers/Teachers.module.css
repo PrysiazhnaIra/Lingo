@@ -1,4 +1,9 @@
 .wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: var(--info-background);
+  padding: 20px;
+  margin: 0;
 }
 
 .btns {
@@ -26,4 +31,13 @@
 }
 
 @media (min-width: 768px) {
+  .wrapper {
+    padding: 54px 80px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .wrapper {
+    padding: 96px 128px;
+  }
 }

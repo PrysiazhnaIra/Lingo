@@ -13,6 +13,7 @@
   --light-peach: #f4c8ba;
   --black: #121417;
   --gray: rgba(18, 20, 23, 0.7);
+  --almost-gray: #8a8a89;
   --light-gray: rgba(18, 20, 23, 0.8);
   --white: #fff;
   --royal-blue: #338af3;
@@ -72,19 +73,32 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+a {
   cursor: pointer;
   border: none;
   transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 
+button {
+  background-color: var(--intensive-yellow);
+}
+
+a:hover,
+a:focus,
 button:hover,
 button:focus {
   transform: scale(1.05);
 }
 
+button:hover,
+button:focus {
+  background-color: var(--yellow);
+}
+
 input,
-textarea {
+textarea,
+select {
   border: none;
   outline: none;
 }

@@ -1,28 +1,19 @@
-import { IoIosArrowDown } from "react-icons/io";
+import Languages from "./Languages/Languages.jsx";
+import Level from "./Level/Level.jsx";
+import Price from "./Price/Price.jsx";
+import css from "./Filters.module.css";
 
 export default function Filters() {
   return (
-    <ul>
+    <ul className={css.list}>
       <li>
-        <p>Languages</p>
-        <div>
-          <input />
-          <IoIosArrowDown />
-        </div>
+        <Languages />
       </li>
       <li>
-        <p>Level of knowledge</p>
-        <div>
-          <input />
-          <IoIosArrowDown />
-        </div>
+        <Level />
       </li>
       <li>
-        <p>Price</p>
-        <div>
-          <input />
-          <IoIosArrowDown />
-        </div>
+        <Price />
       </li>
     </ul>
   );

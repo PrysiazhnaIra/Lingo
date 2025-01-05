@@ -2,7 +2,7 @@ import css from "./Statistics.module.css";
 
 export default function Statistics() {
   return (
-    <div className={css.wrapper}>
+    <section className={css.wrapper}>
       <ul className={css.list}>
         <li className={css.elem}>
           <p className={css.number}>32,000 +</p>
@@ -21,6 +21,6 @@ export default function Statistics() {
           <p className={css.text}>Tutor nationalities</p>
         </li>
       </ul>
-    </div>
+    </section>
   );
 }

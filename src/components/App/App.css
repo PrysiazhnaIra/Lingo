@@ -1,11 +1,1 @@
-#root {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 2rem;
-}
 
-@media (min-width: 1440px) {
-  #root {
-    padding: 32px 64px;
-  }
-}

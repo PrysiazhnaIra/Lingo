@@ -61,7 +61,6 @@ export default function Registration({ isOpen, onClose }) {
           initialValues={initialValues}
           onSubmit={handleSubmit}
           validationSchema={validationSchema}
-          className={css.formWrap}
         >
           <Form className={css.form}>
             <Field

@@ -36,9 +36,6 @@
   margin-bottom: 40px;
 }
 
-.formWrap {
-}
-
 .form {
   display: flex;
   flex-direction: column;
@@ -94,7 +91,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  background: var(--intensive-yellow);
   margin-top: 24px;
   color: var(--black);
   font-family: Roboto;
