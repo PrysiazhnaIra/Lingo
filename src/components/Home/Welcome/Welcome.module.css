@@ -75,12 +75,26 @@
 }
 
 .image {
-  width: 200px;
-  height: 200px;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  margin-bottom: -60px;
+}
+
+.laptop {
+  width: 250px;
+  height: 180px;
+  border-radius: 10px 10px 0 0;
+  background-color: var(--laptop);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon {
-  fill: linear-gradient(180deg, var(--yellow) 0%, var(--intensive-yellow) 100%);
+  width: 46.048px;
+  height: 55.784px;
+  color: var(--yellow);
 }
 
 @media (min-width: 768px) {
@@ -117,10 +131,11 @@
   }
 
   .decor {
+    padding: 80px 115px 0 114px;
   }
 
-  .image {
-    width: 339px;
-    height: 339px;
+  .laptop {
+    width: 359.72px;
+    height: 214px;
   }
 }

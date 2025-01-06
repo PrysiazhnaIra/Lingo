@@ -23,8 +23,10 @@ export default function Welcome() {
         </NavLink>
       </div>
       <div className={css.decor}>
-        <img src={face} alt="Happy student" className={css.image} />
-        <FaApple className={css.icon} />
+        <img src={face} alt="Happy student" className={`${css.image}`} />
+        <div className={`${css.laptop}`}>
+          <FaApple className={css.icon} />
+        </div>
       </div>
     </section>
   );
