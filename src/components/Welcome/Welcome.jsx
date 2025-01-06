@@ -1,5 +1,5 @@
 import { FaApple } from "react-icons/fa";
-import face from "../../../../public/face.png";
+import face from "../../../public/face.png";
 import css from "./Welcome.module.css";
 import { NavLink } from "react-router-dom";
 

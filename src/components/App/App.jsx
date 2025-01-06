@@ -3,9 +3,7 @@ import { Route, Routes } from "react-router";
 import { lazy, Suspense } from "react";
 import Loader from "../Loader/Loader.jsx";
 
-const HomePage = lazy(() =>
-  import("../../pages/HomePage/HomePage.jsx/HomePage.jsx")
-);
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
 const NotFoundPage = lazy(() =>
   import("../../pages/NotFoundPage/NotFoundPage.jsx")
 );

@@ -1,23 +1,18 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { IoMdClose } from "react-icons/io";
-import css from "./Registration.module.css";
+import css from "./Login.module.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import * as Yup from "yup";
 import Modal from "react-modal";
 import { toast, Toaster } from "react-hot-toast";
-import { auth } from "../../../../config/firebase.js";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../config/firebase.js";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router";
 
 Modal.setAppElement("#root");
 
 const validationSchema = Yup.object({
-  name: Yup.string()
-    .min(2, "Name must be at least 2 characters")
-    .max(32, "Name must be at most 32 characters")
-    .matches(/^[a-zA-Z0-9]*$/, "Name can contain only letters and numbers")
-    .required("Name is required"),
   email: Yup.string()
     .email("Invalid email format")
     .matches(
@@ -32,30 +27,31 @@ const validationSchema = Yup.object({
     .required("Password is required"),
 });
 
-export default function Registration({ isOpen, onClose }) {
+export default function Login({ isOpen, onClose, onLoginSuccess }) {
   const navigate = useNavigate();
   const initialValues = {
-    name: "",
     email: "",
     password: "",
-  };
-  const [showPassword, setShowPassword] = useState(false);
-  const togglePasswordVisibility = () => {
-    setShowPassword((prevState) => !prevState);
   };
 
   const handleSubmit = async (values) => {
     const { email, password } = values;
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      toast.success("User registered successfully!");
+      await signInWithEmailAndPassword(auth, email, password);
+      toast.success("Login successful!");
       setTimeout(() => {
         onClose();
+        onLoginSuccess();
         navigate("/teachers");
       }, 2000);
     } catch (err) {
       toast.error("ERROR:" + err.message);
     }
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
   };
 
   return (
@@ -67,11 +63,10 @@ export default function Registration({ isOpen, onClose }) {
     >
       <div className={css.wrapper}>
         <IoMdClose className={css.closeIcon} onClick={onClose} />
-        <h2 className={css.title}>Registration</h2>
+        <h2 className={css.title}>Login</h2>
         <p className={css.text}>
-          Thank you for your interest in our platform! In order to register, we
-          need some information. Please provide us with the following
-          information
+          Welcome back! Please enter your credentials to access your account and
+          continue your search for an teacher.
         </p>
         <Toaster position="top-center" reverseOrder={false} />
         <Formik
@@ -80,13 +75,6 @@ export default function Registration({ isOpen, onClose }) {
           validationSchema={validationSchema}
         >
           <Form className={css.form}>
-            <Field
-              type="text"
-              name="name"
-              placeholder="Name"
-              className={css.input}
-            />
-            <ErrorMessage name="name" component="span" className={css.error} />
             <Field
               type="email"
               name="email"
@@ -119,7 +107,7 @@ export default function Registration({ isOpen, onClose }) {
             />
 
             <button type="submit" className={css.btnSubmit}>
-              Sign Up
+              Log In
             </button>
           </Form>
         </Formik>

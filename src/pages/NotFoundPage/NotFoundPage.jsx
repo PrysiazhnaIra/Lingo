@@ -1,9 +1,11 @@
-import NotFound from '../../components/NotFound/NotFound.jsx';
+import GoBackBtn from "../../components/GoBackBtn/GoBackBtn.jsx";
+import css from "./NotFoundPage.module.css";
 
 export default function NotFoundPage() {
   return (
-    <>
-      <NotFound />
-    </>
+    <div className={css.block}>
+      <h2 className={css.title}>Page not found</h2>
+      <GoBackBtn />
+    </div>
   );
 }
