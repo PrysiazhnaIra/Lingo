@@ -5,6 +5,10 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import * as Yup from "yup";
 import Modal from "react-modal";
+import { toast, Toaster } from "react-hot-toast";
+import { auth } from "../../../../config/firebase.js";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router";
 
 Modal.setAppElement("#root");
 
@@ -24,12 +28,25 @@ const validationSchema = Yup.object({
 });
 
 export default function Login({ isOpen, onClose }) {
+  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
   };
 
-  const handleSubmit = async () => {};
+  const handleSubmit = async (values) => {
+    const { email, password } = values;
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      toast.success("Login successful!");
+      setTimeout(() => {
+        onClose();
+        navigate("/teachers");
+      }, 3000);
+    } catch (err) {
+      toast.error("ERROR:" + err.message);
+    }
+  };
 
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
@@ -50,6 +67,7 @@ export default function Login({ isOpen, onClose }) {
           Welcome back! Please enter your credentials to access your account and
           continue your search for an teacher.
         </p>
+        <Toaster position="top-center" reverseOrder={false} />
         <Formik
           initialValues={initialValues}
           onSubmit={handleSubmit}

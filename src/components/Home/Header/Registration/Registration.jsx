@@ -5,6 +5,10 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import * as Yup from "yup";
 import Modal from "react-modal";
+import { toast, Toaster } from "react-hot-toast";
+import { auth } from "../../../../config/firebase.js";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router";
 
 Modal.setAppElement("#root");
 
@@ -29,17 +33,29 @@ const validationSchema = Yup.object({
 });
 
 export default function Registration({ isOpen, onClose }) {
+  const navigate = useNavigate();
   const initialValues = {
     name: "",
     email: "",
     password: "",
   };
-
-  const handleSubmit = async () => {};
-
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
+  };
+
+  const handleSubmit = async (values) => {
+    const { email, password } = values;
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      toast.success("User registered successfully!");
+      setTimeout(() => {
+        onClose();
+        navigate("/teachers");
+      }, 2000);
+    } catch (err) {
+      toast.error("ERROR:" + err.message);
+    }
   };
 
   return (
@@ -57,6 +73,7 @@ export default function Registration({ isOpen, onClose }) {
           need some information. Please provide us with the following
           information
         </p>
+        <Toaster position="top-center" reverseOrder={false} />
         <Formik
           initialValues={initialValues}
           onSubmit={handleSubmit}

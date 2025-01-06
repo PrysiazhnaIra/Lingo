@@ -115,6 +115,10 @@
     font-size: 48px;
     margin-bottom: 32px;
   }
+
+  .laptop {
+    width: 300px;
+  }
 }
 
 @media (min-width: 1440px) {
