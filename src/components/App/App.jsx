@@ -1,7 +1,10 @@
 import "./App.css";
 import { Route, Routes } from "react-router";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import Loader from "../Loader/Loader.jsx";
+import { Analytics } from "@vercel/analytics/react";
+import { analytics } from "../../config/firebase";
+import { logEvent } from "firebase/analytics";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
 const NotFoundPage = lazy(() =>
@@ -12,6 +15,10 @@ const TeachersPage = lazy(() =>
 );
 
 function App() {
+  useEffect(() => {
+    logEvent(analytics, "page_view");
+  }, []);
+
   return (
     <Suspense fallback={<Loader width="200" height="200" />}>
       <Routes>
@@ -19,6 +26,7 @@ function App() {
         <Route path="/teachers" element={<TeachersPage />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
+      <Analytics />
     </Suspense>
   );
 }
