@@ -1,0 +1,211 @@
+/* modal */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal {
+  position: relative;
+  max-width: 600px;
+  max-height: 90%;
+  background-color: white;
+  border-radius: 30px;
+  overflow-y: auto;
+}
+
+.wrapper {
+  position: relative;
+  padding: 64px;
+}
+
+.closeIcon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  fill: var(--black);
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.mainTitle {
+  color: var(--black);
+  font-family: Roboto;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.info {
+  color: var(--black);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.teacherWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.photoWrap {
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+}
+
+.teacherPhoto {
+}
+
+.teacherTextWrap {
+}
+
+.teacherText {
+  color: var(--almost-gray);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.teacherName {
+  color: var(--black);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.questionTitle {
+  color: var(--black);
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 21px;
+}
+
+.from {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 23px;
+
+  color: var(--black);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.checkboxes label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.checkboxes input[type="checkbox"] {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  margin-right: 8px;
+}
+
+.checkboxes input[type="checkbox"]:checked {
+  border-color: var(--intensive-yellow);
+}
+
+.checkboxes input[type="checkbox"]:checked::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: var(--intensive-yellow);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.input {
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-input);
+}
+
+.input,
+.input::placeholder {
+  color: var(--black);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.input::placeholder {
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.input:focus::placeholder {
+  opacity: 0;
+}
+
+.error {
+  padding: 0 16px;
+  color: var(--almost-red);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.btnBook {
+  margin-top: 22px;
+  border-radius: 12px;
+  background-color: var(--intensive-yellow);
+  padding: 16px 215px;
+  color: var(--black);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.6;
+}
