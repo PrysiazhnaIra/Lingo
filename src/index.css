@@ -21,6 +21,8 @@
   --golden-yellow: #ffda44;
   --info-background: #f8f8f8;
   --border-input: rgba(18, 20, 23, 0.1);
+  --separator: rgba(18, 20, 23, 0.2);
+  --green: #38cd3e;
 }
 
 html {
