@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import { IoMdClose } from "react-icons/io";
 import { db, collection, addDoc } from "../../config/firebase.js";
 import { toast, Toaster } from "react-hot-toast";
+import { useState } from "react";
+import { FaUser } from "react-icons/fa";
 
 Modal.setAppElement("#root");
 
@@ -25,12 +27,18 @@ const validationSchema = Yup.object({
     .required("Please select at least one option"),
 });
 
-export default function BookTrial({ isOpen, onClose, name }) {
+export default function BookTrial({ isOpen, onClose, name, surname, ava }) {
   const initialValues = {
     checkboxes: [],
     fullName: "",
     email: "",
     phoneNumber: "",
+  };
+
+  const [isImageError, setIsImageError] = useState(false);
+
+  const handleImageError = () => {
+    setIsImageError(true);
   };
 
   const handleSubmit = async (values, { resetForm, setSubmitting }) => {
@@ -72,11 +80,20 @@ export default function BookTrial({ isOpen, onClose, name }) {
         </p>
         <div className={css.teacherWrap}>
           <div className={css.photoWrap}>
-            <img src="" alt="" className={css.teacherPhoto} />
+            {isImageError || !ava ? (
+              <FaUser className={css.icon} />
+            ) : (
+              <img
+                src={ava}
+                alt={`${name} ${surname}`}
+                className={css.teacherPhoto}
+                onError={handleImageError}
+              />
+            )}
           </div>
           <div className={css.teacherTextWrap}>
             <p className={css.teacherText}>Your teacher</p>
-            <p className={css.teacherName}>{name}</p>
+            <p className={css.teacherName}>{name + " " + surname}</p>
           </div>
         </div>
         <h3 className={css.questionTitle}>

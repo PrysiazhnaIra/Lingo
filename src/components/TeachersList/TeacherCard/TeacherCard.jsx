@@ -9,6 +9,7 @@ import { FaRegHeart } from "react-icons/fa";
 export default function TeacherCard({ teacher }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isImageError, setIsImageError] = useState(false);
+  const [isReadMore, setIsReadMore] = useState(false);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -20,6 +21,10 @@ export default function TeacherCard({ teacher }) {
 
   const handleImageError = () => {
     setIsImageError(true);
+  };
+
+  const handleTeacherDetails = () => {
+    setIsReadMore(true);
   };
 
   return (
@@ -69,7 +74,7 @@ export default function TeacherCard({ teacher }) {
         <ul className={css.extraList}>
           <li className={css.extraItem}>
             Speaks:{" "}
-            <span className={css.extraInfo}>
+            <span className={`${css.extraInfo} ${css.speaks}`}>
               {teacher.languages.join(", ")}
             </span>
           </li>
@@ -85,37 +90,47 @@ export default function TeacherCard({ teacher }) {
           </li>
         </ul>
 
-        <p className={css.experience}>{teacher.experience}</p>
+        {!isReadMore && (
+          <button onClick={handleTeacherDetails} className={css.teacherDetails}>
+            Read more
+          </button>
+        )}
 
-        <div className={css.feedbackWrap}>
-          {teacher.reviews && teacher.reviews.length > 0 ? (
-            <ul className={css.feedbackTop}>
-              {teacher.reviews.map((review, index) => (
-                <li key={index} className={css.reviewItem}>
-                  <div className={css.topReviewWrap}>
-                    <div className={css.photoFeedback}>
-                      <FaUser className={css.iconFeedback} />
-                    </div>
-                    <div className={css.reviewHeader}>
-                      <span className={css.reviewerName}>
-                        {review.reviewer_name}
-                      </span>
-                      <div className={css.markBlock}>
-                        <FaStar className={css.starIcon} />
-                        <span className={css.reviewerRating}>
-                          {review.reviewer_rating.toFixed(1)}
-                        </span>
+        {isReadMore && (
+          <>
+            <p className={css.experience}>{teacher.experience}</p>
+
+            <div className={css.feedbackWrap}>
+              {teacher.reviews && teacher.reviews.length > 0 ? (
+                <ul className={css.feedbackTop}>
+                  {teacher.reviews.map((review, index) => (
+                    <li key={index} className={css.reviewItem}>
+                      <div className={css.topReviewWrap}>
+                        <d iv className={css.photoFeedback}>
+                          <FaUser className={css.iconFeedback} />
+                        </d>
+                        <div className={css.reviewHeader}>
+                          <span className={css.reviewerName}>
+                            {review.reviewer_name}
+                          </span>
+                          <div className={css.markBlock}>
+                            <FaStar className={css.starIcon} />
+                            <span className={css.reviewerRating}>
+                              {review.reviewer_rating.toFixed(1)}
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <p className={css.comment}>{review.comment}</p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No reviews available</p>
-          )}
-        </div>
+                      <p className={css.comment}>{review.comment}</p>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No reviews available</p>
+              )}
+            </div>
+          </>
+        )}
 
         <ul className={css.levelList}>
           {teacher.levels.map((level, index) => (
@@ -133,7 +148,9 @@ export default function TeacherCard({ teacher }) {
           <BookTrial
             isOpen={isModalOpen}
             onClose={handleCloseModal}
-            name="Teacher Name"
+            name={teacher.name}
+            surname={teacher.surname}
+            ava={teacher.avatar_url}
           />
         )}
       </div>

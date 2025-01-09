@@ -21,11 +21,12 @@ export default function TeachersList() {
           }));
           setTeachers(teachersArray);
           console.log("MyARRAY:", teachersArray);
+          toast.success("The list of teachers has been uploaded! Enjoy!");
         } else {
           console.log("No data available");
         }
       } catch (err) {
-        console.error("Error fetching teachers: ", err);
+        toast.error("ERROR:" + err.message);
       }
     }
 

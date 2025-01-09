@@ -66,11 +66,19 @@
 
 .photoWrap {
   border-radius: 100px;
+  border: 3px solid var(--almost-gray);
   width: 44px;
   height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .teacherPhoto {
+}
+
+.icon {
+  color: var(--almost-gray);
 }
 
 .teacherTextWrap {
