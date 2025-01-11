@@ -1,2 +1,23 @@
 .list {
 }
+
+.btnWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadMoreBtn {
+  margin-top: 64px;
+  display: flex;
+  padding: 16px 48px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  color: var(--black);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.6;
+}

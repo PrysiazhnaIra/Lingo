@@ -75,6 +75,7 @@
 }
 
 .teacherPhoto {
+  border-radius: 100px;
 }
 
 .icon {
@@ -216,4 +217,17 @@
   font-style: normal;
   font-weight: 700;
   line-height: 1.6;
+
+  animation-name: rotateAnimation;
+  animation-direction: alternate;
+  animation-timeline: scroll();
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

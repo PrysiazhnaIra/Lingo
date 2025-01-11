@@ -47,14 +47,14 @@ export default function TeacherCard({ teacher }) {
           <p className={css.text}>Languages</p>
           <div className={css.listWrap}>
             <ul className={css.topList}>
-              <li>
+              <li className={css.topElem}>
                 <FiBookOpen className={css.bookIcon} />
                 Lessons online
               </li>
               <li className={css.separator}></li>
               <li>Lessons done: {teacher.lessons_done}</li>
               <li className={css.separator}></li>
-              <li>
+              <li className={css.topElem}>
                 <FaStar className={css.starIcon} />
                 Rating: {teacher.rating}
               </li>
@@ -106,9 +106,9 @@ export default function TeacherCard({ teacher }) {
                   {teacher.reviews.map((review, index) => (
                     <li key={index} className={css.reviewItem}>
                       <div className={css.topReviewWrap}>
-                        <d iv className={css.photoFeedback}>
+                        <div className={css.photoFeedback}>
                           <FaUser className={css.iconFeedback} />
-                        </d>
+                        </div>
                         <div className={css.reviewHeader}>
                           <span className={css.reviewerName}>
                             {review.reviewer_name}

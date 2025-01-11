@@ -61,6 +61,12 @@
   display: flex;
   gap: 16px;
   justify-content: center;
+  align-items: center;
+}
+
+.topElem {
+  display: flex;
+  align-items: center;
 }
 
 .bookIcon {
@@ -194,12 +200,19 @@
   padding: 8px 12px;
 }
 
-.levelItem:first-child {
-  background-color: var(--intensive-yellow);
-  border: none;
-}
-
 .bookBtn {
   padding: 16px 48px;
   border-radius: 12px;
+  animation-name: rotateAnimation;
+  animation-direction: alternate;
+  animation-timeline: scroll();
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
