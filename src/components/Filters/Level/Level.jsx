@@ -1,9 +1,8 @@
-import { useId, useState } from "react";
+import { useId } from "react";
 import css from "./Level.module.css";
 
-export default function Level() {
+export default function Level({ level, onLevelChange }) {
   const selectId = useId();
-  const [level, setLevel] = useState("A1 Beginner");
 
   return (
     <div className={css.levelWrap}>
@@ -13,19 +12,19 @@ export default function Level() {
       <select
         id={selectId}
         value={level}
-        onChange={(evt) => setLevel(evt.target.value)}
+        onChange={(evt) => onLevelChange(evt.target.value)}
         className={css.select}
       >
-        <option value="a1" className={css.variant}>
+        <option value="A1 Beginner" className={css.variant}>
           A1 Beginner
         </option>
-        <option value="a2" className={css.variant}>
+        <option value="A2 Elementary" className={css.variant}>
           A2 Elementary
         </option>
-        <option value="b1" className={css.variant}>
+        <option value="B1 Intermediate" className={css.variant}>
           B1 Intermediate
         </option>
-        <option value="b2" className={css.variant}>
+        <option value="B2 Upper-Intermediate" className={css.variant}>
           B2 Upper-Intermediate
         </option>
       </select>

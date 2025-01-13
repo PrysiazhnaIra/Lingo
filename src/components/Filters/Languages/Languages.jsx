@@ -1,9 +1,8 @@
-import { useId, useState } from "react";
+import { useId } from "react";
 import css from "./Languages.module.css";
 
-export default function Languages() {
+export default function Languages({ lang, onLangChange }) {
   const selectId = useId();
-  const [lang, setLang] = useState("French");
 
   return (
     <div className={css.langWrap}>
@@ -13,22 +12,22 @@ export default function Languages() {
       <select
         id={selectId}
         value={lang}
-        onChange={(evt) => setLang(evt.target.value)}
+        onChange={(evt) => onLangChange(evt.target.value)}
         className={css.select}
       >
-        <option value="fr" className={css.variant}>
+        <option value="French" className={css.variant}>
           French
         </option>
-        <option value="en" className={css.variant}>
+        <option value="English" className={css.variant}>
           English
         </option>
-        <option value="de" className={css.variant}>
+        <option value="German" className={css.variant}>
           German
         </option>
-        <option value="uk" className={css.variant}>
+        <option value="Ukrainian" className={css.variant}>
           Ukrainian
         </option>
-        <option value="pl" className={css.variant}>
+        <option value="Polish" className={css.variant}>
           Polish
         </option>
       </select>

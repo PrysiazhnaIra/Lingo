@@ -1,65 +1,81 @@
 import { useEffect, useState } from "react";
-import { dataBase } from "../../config/firebase.js";
-import {
-  ref,
-  get,
-  query,
-  limitToFirst,
-  orderByChild,
-  startAt,
-  orderByKey,
-} from "firebase/database";
+import { db } from "../../config/firebase.js";
 import css from "./TeachersList.module.css";
 import TeacherCard from "./TeacherCard/TeacherCard.jsx";
 import { toast, Toaster } from "react-hot-toast";
+import {
+  collection,
+  getDocs,
+  limit,
+  orderBy,
+  query,
+  startAfter,
+  where,
+} from "firebase/firestore";
 
-export default function TeachersList() {
+export default function TeachersList({ language, level, price }) {
   const [teachers, setTeachers] = useState([]);
-  const [page, setPage] = useState(0);
+  const [lastVisible, setLastVisible] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const itemsPerPage = 4;
   const [showLoadMore, setShowLoadMore] = useState(false);
 
-  useEffect(() => {
-    async function fetchTeachers() {
-      try {
-        const dataRef = ref(dataBase, "teachers");
-        const response = await get(
-          query(
-            dataRef,
-            limitToFirst(itemsPerPage),
-            startAt((page * itemsPerPage).toString()),
-            orderByKey()
-          )
-        );
-        if (response.exists()) {
-          const data = response.val();
-          console.log("Data: ", data);
-          const teachersArray = Object.keys(data).map((key) => ({
-            id: key,
-            ...data[key],
-          }));
-          // const teachersToDisplay = [...teachers, ...teachersArray]
-          setTeachers((prevTeachers) => [...prevTeachers, ...teachersArray]);
-          toast.success("The list of teachers has been uploaded! Enjoy!");
-          setShowLoadMore(true);
-        } else {
-          toast.error("No data available");
-          setShowLoadMore(false);
-        }
-      } catch (err) {
-        toast.error("ERROR:" + err.message);
-      }
-    }
+  const fetchTeachers = async (reset) => {
+    try {
+      setIsLoading(true);
+      const dataRef = collection(db, "teachers");
+      let teachersQuery = query(
+        dataRef,
+        where("languages", "array-contains", language),
+        where("price_per_hour", "<=", price),
+        limit(itemsPerPage)
+      );
 
-    fetchTeachers();
-  }, [page]);
+      if (!reset && lastVisible) {
+        teachersQuery = query(teachersQuery, startAfter(lastVisible));
+      }
+      const response = await getDocs(teachersQuery);
+
+      setLastVisible(
+        !response.empty ? response.docs[response.docs.length - 1] : null
+      );
+
+      const teachersArray = response.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+
+      if (!reset) {
+        setTeachers((prevTeachers) => [...prevTeachers, ...teachersArray]);
+      } else {
+        setTeachers(teachersArray);
+      }
+
+      console.log(teachersArray);
+      if (teachersArray.length) {
+        toast.success("The list of teachers has been uploaded! Enjoy!");
+        setShowLoadMore(true);
+      } else {
+        toast.error("No data available");
+        setShowLoadMore(false);
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("ERROR:" + err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchTeachers(true);
+  }, [language, level, price]);
 
   const handleLoadMore = () => {
-    setIsLoading(true);
-    setPage((prevPage) => prevPage + 1);
-    setIsLoading(false);
+    fetchTeachers(false);
   };
+
+  console.log("My language:", language, price, level);
 
   return (
     <div>
