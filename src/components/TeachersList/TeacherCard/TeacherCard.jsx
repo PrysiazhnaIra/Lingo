@@ -1,15 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import css from "./TeacherCard.module.css";
 import BookTrial from "../../BookTrial/BookTrial.jsx";
 import { FaUser } from "react-icons/fa";
 import { FiBookOpen } from "react-icons/fi";
 import { FaStar } from "react-icons/fa6";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { useAuth } from "../../AuthProvider/AuthProvider.jsx";
+import { toast, Toaster } from "react-hot-toast";
 
 export default function TeacherCard({ teacher }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isImageError, setIsImageError] = useState(false);
   const [isReadMore, setIsReadMore] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { isAuthenticated, user } = useAuth();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      const savedFavorites = JSON.parse(localStorage.getItem(user.uid)) || [];
+      setIsFavorite(savedFavorites.some((fav) => fav.id === teacher.id));
+    }
+  }, []);
+
+  const toggleFavorite = () => {
+    if (isAuthenticated) {
+      const savedFavorites = JSON.parse(localStorage.getItem(user.uid)) || [];
+      let updatedFavorites;
+
+      if (isFavorite) {
+        updatedFavorites = savedFavorites.filter(
+          (fav) => fav.id !== teacher.id
+        );
+      } else {
+        updatedFavorites = [...savedFavorites, teacher];
+      }
+
+      localStorage.setItem(user.uid, JSON.stringify(updatedFavorites));
+      setIsFavorite(!isFavorite);
+    } else {
+      toast.error("You must be logged in before you can save a teacher.");
+    }
+  };
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -29,6 +60,7 @@ export default function TeacherCard({ teacher }) {
 
   return (
     <li className={css.card}>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className={css.photoWrap}>
         {isImageError || !teacher.avatar_url ? (
           <FaUser className={css.icon} />
@@ -64,7 +96,15 @@ export default function TeacherCard({ teacher }) {
                 <span className={css.price}>{teacher.price_per_hour} $</span>
               </li>
             </ul>
-            <FaRegHeart className={css.heart} />
+
+            {isFavorite ? (
+              <FaHeart
+                className={`${css.heart} ${css.active}`}
+                onClick={toggleFavorite}
+              />
+            ) : (
+              <FaRegHeart className={css.heart} onClick={toggleFavorite} />
+            )}
           </div>
         </div>
         <h3 className={css.nameTitle}>

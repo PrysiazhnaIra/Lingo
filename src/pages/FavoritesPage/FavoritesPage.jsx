@@ -1,9 +1,21 @@
+import { useAuth } from "../../components/AuthProvider/AuthProvider.jsx";
+import TeacherCard from "../../components/TeachersList/TeacherCard/TeacherCard.jsx";
 import css from "./FavoritesPage.module.css";
+import { useState } from "react";
 
 export default function FavoritesPage() {
+  const { user } = useAuth();
+  const [favorites] = useState(
+    JSON.parse(localStorage.getItem(user.uid)) || []
+  );
+
   return (
     <div className={css.wrapper}>
-      <p>A list of favorite teachers</p>
+      <ul className={css.list}>
+        {favorites.map((teacher) => (
+          <TeacherCard key={teacher.id} teacher={teacher} />
+        ))}
+      </ul>
     </div>
   );
 }

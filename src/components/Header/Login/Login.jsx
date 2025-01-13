@@ -43,7 +43,6 @@ export default function Login({ isOpen, onClose, onLoginSuccess }) {
       setTimeout(() => {
         onClose();
         onLoginSuccess();
-        // navigate("/teachers");
         navigate(location.pathname);
       }, 2000);
     } catch (err) {
