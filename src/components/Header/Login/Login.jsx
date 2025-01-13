@@ -8,7 +8,7 @@ import Modal from "react-modal";
 import { toast, Toaster } from "react-hot-toast";
 import { auth } from "../../../config/firebase.js";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 Modal.setAppElement("#root");
 
@@ -29,6 +29,7 @@ const validationSchema = Yup.object({
 
 export default function Login({ isOpen, onClose, onLoginSuccess }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const initialValues = {
     email: "",
     password: "",
@@ -42,7 +43,8 @@ export default function Login({ isOpen, onClose, onLoginSuccess }) {
       setTimeout(() => {
         onClose();
         onLoginSuccess();
-        navigate("/teachers");
+        // navigate("/teachers");
+        navigate(location.pathname);
       }, 2000);
     } catch (err) {
       toast.error("ERROR:" + err.message);

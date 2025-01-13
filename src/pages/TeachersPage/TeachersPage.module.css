@@ -3,6 +3,7 @@
   background: var(--info-background);
   padding: 20px;
   margin: 0;
+  position: relative;
 }
 
 .btnBlock {
@@ -12,6 +13,43 @@
   justify-content: center;
   align-items: center;
   gap: 16px;
+}
+
+.favoritesBtn {
+  display: inline-flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: none;
+  color: var(--black);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.6;
+  position: fixed;
+  top: 96px;
+  right: 128px;
+
+  animation-name: rotateAnimation;
+  animation-direction: alternate;
+  animation-timeline: scroll();
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.heart {
+  fill: var(--laptop-dark-pink);
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 @media (min-width: 768px) {

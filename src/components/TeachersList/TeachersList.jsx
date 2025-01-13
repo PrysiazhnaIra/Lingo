@@ -7,7 +7,6 @@ import {
   collection,
   getDocs,
   limit,
-  orderBy,
   query,
   startAfter,
   where,
@@ -51,7 +50,6 @@ export default function TeachersList({ language, level, price }) {
         setTeachers(teachersArray);
       }
 
-      console.log(teachersArray);
       if (teachersArray.length) {
         toast.success("The list of teachers has been uploaded! Enjoy!");
         setShowLoadMore(true);
@@ -74,8 +72,6 @@ export default function TeachersList({ language, level, price }) {
   const handleLoadMore = () => {
     fetchTeachers(false);
   };
-
-  console.log("My language:", language, price, level);
 
   return (
     <div>

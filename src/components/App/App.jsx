@@ -1,10 +1,9 @@
 import "./App.css";
 import { Route, Routes } from "react-router";
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense } from "react";
 import Loader from "../Loader/Loader.jsx";
-import { Analytics } from "@vercel/analytics/react";
-import { analytics } from "../../config/firebase";
-import { logEvent } from "firebase/analytics";
+import PrivateRoute from "../../routes/PrivateRoute.jsx";
+import { useAuth } from "../AuthProvider/AuthProvider.jsx";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
 const NotFoundPage = lazy(() =>
@@ -18,19 +17,22 @@ const FavoritesPage = lazy(() =>
 );
 
 function App() {
-  useEffect(() => {
-    logEvent(analytics, "page_view");
-  }, []);
-
+  const { isAuthenticated } = useAuth();
   return (
     <Suspense fallback={<Loader width="200" height="200" />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/teachers" element={<TeachersPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route
+          path="/favorites"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <FavoritesPage />
+            </PrivateRoute>
+          }
+        />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
-      <Analytics />
     </Suspense>
   );
 }

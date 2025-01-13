@@ -1,16 +1,15 @@
 import { FiLogIn } from "react-icons/fi";
 import css from "./NavToAuth.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Registration from "../Registration/Registration.jsx";
 import Login from "../Login/Login.jsx";
 import Logout from "../../Logout/Logout.jsx";
-
-import { auth } from "../../../config/firebase.js";
+import { useAuth } from "../../AuthProvider/AuthProvider.jsx";
 
 export default function NavToAuth() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isAuthenticated, setIsAuthenticated } = useAuth();
 
   const handleLoginSuccess = () => {
     setIsAuthenticated(true);
@@ -25,14 +24,6 @@ export default function NavToAuth() {
   const handleLogout = () => {
     setIsAuthenticated(false);
   };
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setIsAuthenticated(!!user);
-    });
-
-    return () => unsubscribe();
-  }, []);
 
   return (
     <>
