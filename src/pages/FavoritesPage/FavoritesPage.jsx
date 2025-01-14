@@ -1,4 +1,5 @@
 import { useAuth } from "../../components/AuthProvider/AuthProvider.jsx";
+import GoBackBtn from "../../components/GoBackBtn/GoBackBtn.jsx";
 import TeacherCard from "../../components/TeachersList/TeacherCard/TeacherCard.jsx";
 import css from "./FavoritesPage.module.css";
 import { useState } from "react";
@@ -16,6 +17,7 @@ export default function FavoritesPage() {
           <TeacherCard key={teacher.id} teacher={teacher} />
         ))}
       </ul>
+      <GoBackBtn />
     </div>
   );
 }

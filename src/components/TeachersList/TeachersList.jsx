@@ -39,10 +39,14 @@ export default function TeachersList({ language, level, price }) {
         !response.empty ? response.docs[response.docs.length - 1] : null
       );
 
-      const teachersArray = response.docs.map((doc) => ({
+      let teachersArray = response.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }));
+
+      teachersArray = teachersArray.filter((teacher) =>
+        teacher.levels.includes(level)
+      );
 
       if (!reset) {
         setTeachers((prevTeachers) => [...prevTeachers, ...teachersArray]);

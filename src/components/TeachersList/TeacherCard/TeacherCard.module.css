@@ -97,6 +97,10 @@
   height: 26px;
 }
 
+.active {
+  fill: #b03f3e;
+}
+
 .nameTitle {
   font-size: 24px;
   margin-bottom: 32px;
