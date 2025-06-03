@@ -3,9 +3,12 @@ import globals from "globals";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import tseslint from "typescript-eslint";
 
 export default [
   { ignores: ["dist"] },
+
+  // 🟦 JavaScript/JSX config block
   {
     files: ["**/*.{js,jsx}"],
     languageOptions: {
@@ -34,6 +37,26 @@ export default [
         "warn",
         { allowConstantExport: true },
       ],
+    },
+  },
+
+  // 🟨 TypeScript/TSX config block
+  {
+    files: ["**/*.{ts,tsx}"],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: "./tsconfig.json",
+        tsconfigRootDir: process.cwd(),
+        sourceType: "module",
+      },
+      globals: globals.browser,
+    },
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+    },
+    rules: {
+      ...tseslint.configs.recommended.rules,
     },
   },
 ];

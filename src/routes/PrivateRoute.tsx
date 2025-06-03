@@ -1,7 +1,7 @@
-import Login from "../components/Header/Login/Login.jsx";
+import Login from "../components/Header/Login/Login.js";
 import { useState } from "react";
-import GoBackBtn from "../components/GoBackBtn/GoBackBtn.jsx";
-import { useAuth } from "../components/AuthProvider/AuthProvider.jsx";
+import GoBackBtn from "../components/GoBackBtn/GoBackBtn.js";
+import { useAuth } from "../components/AuthProvider/AuthProvider.js";
 import css from "./PrivateRoute.module.css";
 
 const PrivateRoute = ({ children }) => {

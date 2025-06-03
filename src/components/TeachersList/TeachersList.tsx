@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { db } from "../../config/firebase.js";
 import css from "./TeachersList.module.css";
-import TeacherCard from "./TeacherCard/TeacherCard.jsx";
+import TeacherCard from "./TeacherCard/TeacherCard.js";
 import { toast, Toaster } from "react-hot-toast";
 import {
   collection,
@@ -64,6 +64,7 @@ export default function TeachersList({ language, level, price }) {
     } catch (err) {
       console.error(err);
       toast.error("ERROR:" + err.message);
+      console.log("my error teachers list", err);
     } finally {
       setIsLoading(false);
     }

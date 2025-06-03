@@ -1,6 +1,6 @@
-import Filters from "../../components/Filters/Filters.jsx";
-import TeachersList from "../../components/TeachersList/TeachersList.jsx";
-import GoBackBtn from "../../components/GoBackBtn/GoBackBtn.jsx";
+import Filters from "../../components/Filters/Filters.js";
+import TeachersList from "../../components/TeachersList/TeachersList.js";
+import GoBackBtn from "../../components/GoBackBtn/GoBackBtn.js";
 import css from "./TeachersPage.module.css";
 import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";

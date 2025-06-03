@@ -1,10 +1,10 @@
 import { FiLogIn } from "react-icons/fi";
 import css from "./NavToAuth.module.css";
 import { useState } from "react";
-import Registration from "../Registration/Registration.jsx";
-import Login from "../Login/Login.jsx";
-import Logout from "../../Logout/Logout.jsx";
-import { useAuth } from "../../AuthProvider/AuthProvider.jsx";
+import Registration from "../Registration/Registration.js";
+import Login from "../Login/Login.js";
+import Logout from "../../Logout/Logout.js";
+import { useAuth } from "../../AuthProvider/AuthProvider.js";
 
 export default function NavToAuth() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);

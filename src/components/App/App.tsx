@@ -1,19 +1,19 @@
 import "./App.css";
 import { Route, Routes } from "react-router";
 import { lazy, Suspense } from "react";
-import Loader from "../Loader/Loader.jsx";
-import PrivateRoute from "../../routes/PrivateRoute.jsx";
-import { useAuth } from "../AuthProvider/AuthProvider.jsx";
+import Loader from "../Loader/Loader.js";
+import PrivateRoute from "../../routes/PrivateRoute.js";
+import { useAuth } from "../AuthProvider/AuthProvider.js";
 
-const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
-const NotFoundPage = lazy(() =>
-  import("../../pages/NotFoundPage/NotFoundPage.jsx")
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage.js"));
+const NotFoundPage = lazy(
+  () => import("../../pages/NotFoundPage/NotFoundPage.js")
 );
-const TeachersPage = lazy(() =>
-  import("../../pages/TeachersPage/TeachersPage.jsx")
+const TeachersPage = lazy(
+  () => import("../../pages/TeachersPage/TeachersPage.js")
 );
-const FavoritesPage = lazy(() =>
-  import("../../pages/FavoritesPage/FavoritesPage.jsx")
+const FavoritesPage = lazy(
+  () => import("../../pages/FavoritesPage/FavoritesPage.js")
 );
 
 function App() {

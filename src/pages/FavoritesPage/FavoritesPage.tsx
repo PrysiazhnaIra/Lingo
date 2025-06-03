@@ -1,6 +1,6 @@
-import { useAuth } from "../../components/AuthProvider/AuthProvider.jsx";
-import GoBackBtn from "../../components/GoBackBtn/GoBackBtn.jsx";
-import TeacherCard from "../../components/TeachersList/TeacherCard/TeacherCard.jsx";
+import { useAuth } from "../../components/AuthProvider/AuthProvider.js";
+import GoBackBtn from "../../components/GoBackBtn/GoBackBtn.js";
+import TeacherCard from "../../components/TeachersList/TeacherCard/TeacherCard.js";
 import css from "./FavoritesPage.module.css";
 import { useState } from "react";
 

@@ -1,6 +1,6 @@
-import Languages from "./Languages/Languages.jsx";
-import Level from "./Level/Level.jsx";
-import Price from "./Price/Price.jsx";
+import Languages from "./Languages/Languages.js";
+import Level from "./Level/Level.js";
+import Price from "./Price/Price.js";
 import css from "./Filters.module.css";
 
 export default function Filters({

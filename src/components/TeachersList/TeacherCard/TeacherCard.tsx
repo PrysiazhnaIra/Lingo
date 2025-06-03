@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import css from "./TeacherCard.module.css";
-import BookTrial from "../../BookTrial/BookTrial.jsx";
+import BookTrial from "../../BookTrial/BookTrial.js";
 import { FaUser } from "react-icons/fa";
 import { FiBookOpen } from "react-icons/fi";
 import { FaStar } from "react-icons/fa6";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { useAuth } from "../../AuthProvider/AuthProvider.jsx";
+import { useAuth } from "../../AuthProvider/AuthProvider.js";
 import { toast, Toaster } from "react-hot-toast";
 
 export default function TeacherCard({ teacher }) {

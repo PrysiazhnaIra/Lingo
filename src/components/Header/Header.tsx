@@ -1,8 +1,8 @@
-import Logo from "./Logo/Logo.jsx";
+import Logo from "./Logo/Logo.js";
 
 import css from "./Header.module.css";
-import NavToPages from "./NavToPages/NavToPages.jsx";
-import NavToAuth from "./NavToAuth/NavToAuth.jsx";
+import NavToPages from "./NavToPages/NavToPages.js";
+import NavToAuth from "./NavToAuth/NavToAuth.js";
 
 export default function Header() {
   return (

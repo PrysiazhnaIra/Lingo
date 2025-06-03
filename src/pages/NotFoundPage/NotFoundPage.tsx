@@ -1,4 +1,4 @@
-import GoBackBtn from "../../components/GoBackBtn/GoBackBtn.jsx";
+import GoBackBtn from "../../components/GoBackBtn/GoBackBtn.js";
 import css from "./NotFoundPage.module.css";
 
 export default function NotFoundPage() {

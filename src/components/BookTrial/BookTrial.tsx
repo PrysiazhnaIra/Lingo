@@ -58,6 +58,7 @@ export default function BookTrial({ isOpen, onClose, name, surname, ava }) {
       }, 2000);
     } catch (err) {
       toast.error("ERROR:" + err.message);
+      console.log("my error book trial", err);
     } finally {
       setSubmitting(false);
     }

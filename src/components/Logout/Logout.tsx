@@ -16,6 +16,7 @@ export default function Logout({ onLogout }) {
       }, 2000);
     } catch (err) {
       toast.error("ERROR:" + err.message);
+      console.log("my error logout", err);
     }
   };
   return (
