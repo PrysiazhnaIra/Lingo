@@ -32,8 +32,8 @@ The platform connects students with professional language teachers for online le
 
 ## Technologies Used
 
-- **Frontend**: React, React Router, formik, yup
-- **Backend**: Firebase Authentication, Firebase Firestore Database
+- **Frontend**: React, React Router, TypeScript, Formik, yup
+- **Backend**: Firebase Authentication, Firebase/Firestore Database
 - **Styling**: CSS modules
 - **Deployment**: Hosted on Firebase
 - **Tooling**: Vite for building and bundling the application
