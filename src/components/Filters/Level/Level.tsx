@@ -1,7 +1,12 @@
 import { useId } from "react";
 import css from "./Level.module.css";
 
-export default function Level({ level, onLevelChange }) {
+type LevelProps = {
+  level: string;
+  onLevelChange: (level: string) => void;
+};
+
+export default function Level({ level, onLevelChange }: LevelProps) {
   const selectId = useId();
 
   return (

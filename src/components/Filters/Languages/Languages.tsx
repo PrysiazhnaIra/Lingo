@@ -1,7 +1,12 @@
 import { useId } from "react";
 import css from "./Languages.module.css";
 
-export default function Languages({ lang, onLangChange }) {
+type LanguagesProps = {
+  lang: string;
+  onLangChange: (lang: string) => void;
+};
+
+export default function Languages({ lang, onLangChange }: LanguagesProps) {
   const selectId = useId();
 
   return (

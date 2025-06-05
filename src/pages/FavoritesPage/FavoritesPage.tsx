@@ -7,13 +7,13 @@ import { useState } from "react";
 export default function FavoritesPage() {
   const { user } = useAuth();
   const [favorites] = useState(
-    JSON.parse(localStorage.getItem(user.uid)) || []
+    JSON.parse(localStorage.getItem(user.uid) || "[]") || []
   );
 
   return (
     <div className={css.wrapper}>
       <ul className={css.list}>
-        {favorites.map((teacher) => (
+        {favorites.map((teacher: any) => (
           <TeacherCard key={teacher.id} teacher={teacher} />
         ))}
       </ul>

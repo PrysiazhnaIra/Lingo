@@ -6,7 +6,7 @@ import { useState } from "react";
 import * as Yup from "yup";
 import Modal from "react-modal";
 import { toast, Toaster } from "react-hot-toast";
-import { auth } from "../../../config/firebase.js";
+import { auth } from "../../../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router";
 
@@ -32,7 +32,25 @@ const validationSchema = Yup.object({
     .required("Password is required"),
 });
 
-export default function Registration({ isOpen, onClose, onRegisterSuccess }) {
+type RegistrationProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  onRegisterSuccess: () => void;
+};
+
+type HandleSubmitProps = {
+  values: {
+    name: string;
+    email: string;
+    password: string;
+  };
+};
+
+export default function Registration({
+  isOpen,
+  onClose,
+  onRegisterSuccess,
+}: RegistrationProps) {
   const navigate = useNavigate();
   const initialValues = {
     name: "",
@@ -44,7 +62,7 @@ export default function Registration({ isOpen, onClose, onRegisterSuccess }) {
     setShowPassword((prevState) => !prevState);
   };
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values: HandleSubmitProps["values"]) => {
     const { email, password } = values;
     try {
       await createUserWithEmailAndPassword(auth, email, password);
@@ -54,7 +72,7 @@ export default function Registration({ isOpen, onClose, onRegisterSuccess }) {
         onRegisterSuccess();
         navigate("/teachers");
       }, 2000);
-    } catch (err) {
+    } catch (err: any) {
       toast.error("ERROR:" + err.message);
       console.log("my error registration", err);
     }

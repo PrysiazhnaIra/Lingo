@@ -6,7 +6,7 @@ import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { useNavigate } from "react-router";
 
-export default function Teachers() {
+export default function TeachersPage() {
   const [lang, setLang] = useState("French");
   const [level, setLevel] = useState("A1 Beginner");
   const [price, setPrice] = useState(30);
@@ -22,7 +22,7 @@ export default function Teachers() {
         Go to <FaRegHeart className={css.heart} /> teachers
       </button>
       <Filters
-        language={lang}
+        lang={lang}
         onLangChange={setLang}
         level={level}
         onLevelChange={setLevel}

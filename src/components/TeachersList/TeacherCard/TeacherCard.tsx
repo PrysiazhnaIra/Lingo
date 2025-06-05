@@ -8,7 +8,11 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useAuth } from "../../AuthProvider/AuthProvider.js";
 import { toast, Toaster } from "react-hot-toast";
 
-export default function TeacherCard({ teacher }) {
+type TeacherCardProps = {
+  teacher: any;
+};
+
+export default function TeacherCard({ teacher }: TeacherCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isImageError, setIsImageError] = useState(false);
   const [isReadMore, setIsReadMore] = useState(false);
@@ -17,19 +21,21 @@ export default function TeacherCard({ teacher }) {
 
   useEffect(() => {
     if (isAuthenticated) {
-      const savedFavorites = JSON.parse(localStorage.getItem(user.uid)) || [];
-      setIsFavorite(savedFavorites.some((fav) => fav.id === teacher.id));
+      const savedFavorites =
+        JSON.parse(localStorage.getItem(user.uid) || "[]") || [];
+      setIsFavorite(savedFavorites.some((fav: any) => fav.id === teacher.id));
     }
   }, []);
 
   const toggleFavorite = () => {
     if (isAuthenticated) {
-      const savedFavorites = JSON.parse(localStorage.getItem(user.uid)) || [];
+      const savedFavorites =
+        JSON.parse(localStorage.getItem(user.uid) || "[]") || [];
       let updatedFavorites;
 
       if (isFavorite) {
         updatedFavorites = savedFavorites.filter(
-          (fav) => fav.id !== teacher.id
+          (fav: any) => fav.id !== teacher.id
         );
       } else {
         updatedFavorites = [...savedFavorites, teacher];

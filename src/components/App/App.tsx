@@ -1,23 +1,15 @@
 import "./App.css";
 import { Route, Routes } from "react-router";
-import { lazy, Suspense } from "react";
-import Loader from "../Loader/Loader.js";
-import PrivateRoute from "../../routes/PrivateRoute.js";
-import { useAuth } from "../AuthProvider/AuthProvider.js";
+import { Suspense } from "react";
 
-const HomePage = lazy(() => import("../../pages/HomePage/HomePage.js"));
-const NotFoundPage = lazy(
-  () => import("../../pages/NotFoundPage/NotFoundPage.js")
-);
-const TeachersPage = lazy(
-  () => import("../../pages/TeachersPage/TeachersPage.js")
-);
-const FavoritesPage = lazy(
-  () => import("../../pages/FavoritesPage/FavoritesPage.js")
-);
+import HomePage from "../../pages/HomePage/HomePage";
+import TeachersPage from "../../pages/TeachersPage/TeachersPage";
+import PrivateRoute from "../../routes/PrivateRoute";
+import FavoritesPage from "../../pages/FavoritesPage/FavoritesPage";
+import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
+import Loader from "../Loader/Loader";
 
 function App() {
-  const { isAuthenticated } = useAuth();
   return (
     <Suspense fallback={<Loader width="200" height="200" />}>
       <Routes>
@@ -26,7 +18,7 @@ function App() {
         <Route
           path="/favorites"
           element={
-            <PrivateRoute isAuthenticated={isAuthenticated}>
+            <PrivateRoute>
               <FavoritesPage />
             </PrivateRoute>
           }

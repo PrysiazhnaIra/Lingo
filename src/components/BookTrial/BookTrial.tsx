@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { IoMdClose } from "react-icons/io";
-import { db, collection, addDoc } from "../../config/firebase.js";
+import { db, collection, addDoc } from "../../config/firebase";
 import { toast, Toaster } from "react-hot-toast";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa";
@@ -27,7 +27,21 @@ const validationSchema = Yup.object({
     .required("Please select at least one option"),
 });
 
-export default function BookTrial({ isOpen, onClose, name, surname, ava }) {
+type BookTrialProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  name: string;
+  surname: string;
+  ava: string;
+};
+
+export default function BookTrial({
+  isOpen,
+  onClose,
+  name,
+  surname,
+  ava,
+}: BookTrialProps) {
   const initialValues = {
     checkboxes: [],
     fullName: "",
@@ -41,7 +55,16 @@ export default function BookTrial({ isOpen, onClose, name, surname, ava }) {
     setIsImageError(true);
   };
 
-  const handleSubmit = async (values, { resetForm, setSubmitting }) => {
+  type HandleSubmitProps = {
+    values: any;
+    resetForm: () => void;
+    setSubmitting: (isSubmitting: boolean) => void;
+  };
+
+  const handleSubmit = async (
+    values: any,
+    { resetForm, setSubmitting }: HandleSubmitProps
+  ) => {
     try {
       await addDoc(collection(db, "bookings"), {
         fullName: values.fullName,
@@ -56,7 +79,7 @@ export default function BookTrial({ isOpen, onClose, name, surname, ava }) {
       setTimeout(() => {
         onClose();
       }, 2000);
-    } catch (err) {
+    } catch (err: any) {
       toast.error("ERROR:" + err.message);
       console.log("my error book trial", err);
     } finally {
@@ -103,7 +126,7 @@ export default function BookTrial({ isOpen, onClose, name, surname, ava }) {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit as any}
         >
           {({ isSubmitting }) => (
             <Form className={css.from}>

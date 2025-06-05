@@ -1,7 +1,12 @@
 import { useId } from "react";
 import css from "./Price.module.css";
 
-export default function Price({ price, onPriceChange }) {
+type PriceProps = {
+  price: number;
+  onPriceChange: (price: number) => void;
+};
+
+export default function Price({ price, onPriceChange }: PriceProps) {
   const selectId = useId();
 
   return (

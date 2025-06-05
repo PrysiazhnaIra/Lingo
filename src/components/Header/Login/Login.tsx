@@ -6,7 +6,7 @@ import { useState } from "react";
 import * as Yup from "yup";
 import Modal from "react-modal";
 import { toast, Toaster } from "react-hot-toast";
-import { auth } from "../../../config/firebase.js";
+import { auth } from "../../../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useLocation, useNavigate } from "react-router";
 
@@ -27,7 +27,22 @@ const validationSchema = Yup.object({
     .required("Password is required"),
 });
 
-export default function Login({ isOpen, onClose, onLoginSuccess }) {
+type LoginProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  onLoginSuccess: () => void;
+};
+
+type HandleSubmitProps = {
+  values: {
+    email: string;
+    password: string;
+  };
+  resetForm: () => void;
+  setSubmitting: (isSubmitting: boolean) => void;
+};
+
+export default function Login({ isOpen, onClose, onLoginSuccess }: LoginProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const initialValues = {
@@ -35,7 +50,7 @@ export default function Login({ isOpen, onClose, onLoginSuccess }) {
     password: "",
   };
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values: HandleSubmitProps["values"]) => {
     const { email, password } = values;
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -45,7 +60,7 @@ export default function Login({ isOpen, onClose, onLoginSuccess }) {
         onLoginSuccess();
         navigate(location.pathname);
       }, 2000);
-    } catch (err) {
+    } catch (err: any) {
       toast.error("ERROR:" + err.message);
       console.log("my error login", err);
     }
