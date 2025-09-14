@@ -9,7 +9,6 @@
 
 .info {
   color: var(--black);
-  font-family: Roboto;
   letter-spacing: -0.02em;
   font-style: normal;
   background-color: var(--info-background);
@@ -38,6 +37,7 @@
   font-weight: 400;
   line-height: 1.4;
   margin-bottom: 15px;
+  max-width: 471px;
 }
 
 .btn {
@@ -66,11 +66,8 @@
 }
 
 .decor {
-  background-color: var(--yellow);
   border-radius: 30px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
@@ -78,23 +75,7 @@
   height: auto;
   max-width: 100%;
   object-fit: cover;
-  margin-bottom: -60px;
-}
-
-.laptop {
-  width: 250px;
-  height: 180px;
-  border-radius: 10px 10px 0 0;
-  background-color: var(--laptop);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.icon {
-  width: 46.048px;
-  height: 55.784px;
-  color: var(--yellow);
+  border-radius: 30px;
 }
 
 @media (min-width: 768px) {
@@ -115,10 +96,6 @@
     font-size: 48px;
     margin-bottom: 32px;
   }
-
-  .laptop {
-    width: 300px;
-  }
 }
 
 @media (min-width: 1440px) {
@@ -132,14 +109,5 @@
 
   .btn {
     padding: 16px 88px;
-  }
-
-  .decor {
-    padding: 80px 115px 0 114px;
-  }
-
-  .laptop {
-    width: 359.72px;
-    height: 214px;
   }
 }

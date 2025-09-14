@@ -13,20 +13,24 @@ The platform connects students with professional language teachers for online le
 1. **Home Page**: Highlights company benefits and provides a call-to-action to explore teacher profiles.
    ![example](./public/extraData/1.png "example")
 2. **Teachers Page**: Displays a list of teachers with advanced filtering options (language, student level, price per hour) and functionality to load more profiles dynamically.
-   ![example](./public/extraData/3.png "example")
+   ![example](./public/extraData/2.png "example")
 3. **Favorites Page**: A private section for logged-in users to view and manage their favorite teachers.
-   ![example](./public/extraData/5.png "example")
+   ![example](./public/extraData/3.png "example")
 
 ### Key Functionalities
 
 - **User Authentication**: Registration, login, logout, and current user data management using Firebase Authentication.
-  ![example](./public/extraData/6.png "example")
-  ![example](./public/extraData/7.png "example")
+
+<div style="display: flex; gap: 20px;">
+<img src="./public/extraData/4.png" alt="log in or register" width="350" >
+<img src="./public/extraData/5.png" alt="log in or register" width="300" >
+</div>
+
 - **Teacher Management**: Teachers' data stored in Firebase, with support for filtering and dynamic loading.
 - **Favorites**: Ability to add/remove teachers to/from favorites, with state persistence.
 - **Interactive Cards**: Teacher cards feature detailed information, a heart button for favorites, and a "Book Trial Lesson" button.
 - **Forms with Validation**: Forms for authentication and booking lessons are created with `formik` and `yup` for validation.
-  ![example](./public/extraData/4.png "example")
+  ![example](./public/extraData/6.png "example")
 
 - **Routing**: Navigation implemented with React Router for seamless transitions between pages.
 
@@ -92,20 +96,20 @@ Each teacher profile includes:
 1. **Головна сторінка**: Висвітлює переваги компанії та містить заклик до дії для перегляду профілів викладачів.
    ![example](./public/extraData/1.png "example")
 2. **Сторінка викладачів**: Відображає список викладачів із розширеними можливостями фільтрації (мова, рівень учнів, ціна за годину) та функцією динамічного завантаження профілів.
-   ![example](./public/extraData/3.png "example")
+   ![example](./public/extraData/2.png "example")
 3. **Сторінка обраних**: Приватний розділ для авторизованих користувачів із можливістю перегляду та управління обраними викладачами.
-   ![example](./public/extraData/5.png "example")
+   ![example](./public/extraData/3.png "example")
 
 ### Основні можливості
 
 - **Аутентифікація користувачів**: Реєстрація, вхід, вихід та управління даними поточного користувача за допомогою Firebase Authentication.
-  ![example](./public/extraData/6.png "example")
-  ![example](./public/extraData/7.png "example")
+  ![example](./public/extraData/4.png "example")
+  ![example](./public/extraData/5.png "example")
 - **Управління викладачами**: Дані викладачів зберігаються в Firebase з підтримкою фільтрації та динамічного завантаження.
 - **Обрані**: Можливість додавання/видалення викладачів до/з обраних із збереженням стану.
 - **Інтерактивні картки**: Картки викладачів містять детальну інформацію, кнопку додавання в обрані та кнопку "Забронювати пробне заняття".
 - **Форми з валідацією**: Форми для аутентифікації та бронювання занять створені за допомогою `formik` і `yup`.
-  ![example](./public/extraData/4.png "example")
+  ![example](./public/extraData/6.png "example")
 - **Маршрутизація**: Навігація реалізована за допомогою React Router для плавного переходу між сторінками.
 
 ## Використані технології

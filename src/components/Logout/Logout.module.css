@@ -1,11 +1,7 @@
-.wrapper {
-}
-
 .btnLogout {
   padding: 16px 48px;
   border-radius: 12px;
   color: var(--black);
-  font-family: Roboto;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;

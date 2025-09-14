@@ -32,19 +32,18 @@
 
 .infoWrap {
   color: var(--black);
-  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.5;
-
-  max-width: 968px;
+  line-height: 1.3;
+  flex: 1;
 }
 
 .topWrap {
   display: flex;
-  gap: 192px;
   margin-bottom: 8px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .text {
@@ -62,6 +61,10 @@
   gap: 16px;
   justify-content: center;
   align-items: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .topElem {
@@ -104,6 +107,8 @@
 .nameTitle {
   font-size: 24px;
   margin-bottom: 32px;
+  font-weight: 500;
+  line-height: 1;
 }
 
 .extraList {
@@ -130,7 +135,9 @@
   background-color: transparent;
   margin-bottom: 32px;
   padding: 0;
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
 }
 
 .teacherDetails:hover,

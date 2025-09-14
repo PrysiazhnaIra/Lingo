@@ -38,7 +38,6 @@
 
 .mainTitle {
   color: var(--black);
-  font-family: Roboto;
   font-size: 40px;
   font-style: normal;
   font-weight: 500;
@@ -49,7 +48,6 @@
 
 .info {
   color: var(--black);
-  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -82,12 +80,8 @@
   color: var(--almost-gray);
 }
 
-.teacherTextWrap {
-}
-
 .teacherText {
   color: var(--almost-gray);
-  font-family: Roboto;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -96,7 +90,6 @@
 
 .teacherName {
   color: var(--black);
-  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -105,7 +98,6 @@
 
 .questionTitle {
   color: var(--black);
-  font-family: Roboto;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -125,9 +117,7 @@
   flex-direction: column;
   gap: 16px;
   margin-bottom: 23px;
-
   color: var(--black);
-  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -179,7 +169,6 @@
 .input,
 .input::placeholder {
   color: var(--black);
-  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -198,7 +187,6 @@
 .error {
   padding: 0 16px;
   color: var(--almost-red);
-  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -212,12 +200,10 @@
   background-color: var(--intensive-yellow);
   padding: 16px;
   color: var(--black);
-  font-family: Roboto;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 1.6;
-
   animation-name: rotateAnimation;
   animation-direction: alternate;
   animation-timeline: scroll();

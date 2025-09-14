@@ -13,7 +13,6 @@
 }
 
 .elem {
-  font-family: Roboto;
   font-style: normal;
   letter-spacing: -0.02em;
 }
@@ -36,7 +35,7 @@
   .list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     justify-items: center;
   }
@@ -50,7 +49,6 @@
   .list {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
   }
 
   .elem {

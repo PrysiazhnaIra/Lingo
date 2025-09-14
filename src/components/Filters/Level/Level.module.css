@@ -6,7 +6,6 @@
 
 .label {
   color: var(--almost-gray);
-  font-family: Roboto;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -22,7 +21,6 @@
 
 .variant {
   color: var(--black);
-  font-family: Roboto;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;

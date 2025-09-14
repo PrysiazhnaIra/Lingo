@@ -1,5 +1,4 @@
-import { FaApple } from "react-icons/fa";
-import face from "../../../public/face.png";
+import block from "../../../public/block.png";
 import css from "./Welcome.module.css";
 import { NavLink } from "react-router-dom";
 
@@ -23,10 +22,7 @@ export default function Welcome() {
         </NavLink>
       </div>
       <div className={css.decor}>
-        <img src={face} alt="Happy student" className={`${css.image}`} />
-        <div className={`${css.laptop}`}>
-          <FaApple className={css.icon} />
-        </div>
+        <img src={block} alt="Happy student" className={`${css.image}`} />
       </div>
     </section>
   );
