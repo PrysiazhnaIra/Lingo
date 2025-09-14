@@ -22,10 +22,8 @@ export const AuthProvider = ({ children }: any) => {
       setIsAuthenticated(!!user);
       setLoading(false);
     });
-
     return () => unsubscribe();
   }, []);
-
   return (
     <AuthContext.Provider
       value={{ isAuthenticated, setIsAuthenticated, loading, user }}

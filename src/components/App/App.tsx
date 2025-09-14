@@ -1,13 +1,19 @@
 import "./App.css";
 import { Route, Routes } from "react-router";
-import { Suspense } from "react";
-
-import HomePage from "../../pages/HomePage/HomePage";
-import TeachersPage from "../../pages/TeachersPage/TeachersPage";
+import { lazy, Suspense } from "react";
 import PrivateRoute from "../../routes/PrivateRoute";
-import FavoritesPage from "../../pages/FavoritesPage/FavoritesPage";
-import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import Loader from "../Loader/Loader";
+
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+const TeachersPage = lazy(
+  () => import("../../pages/TeachersPage/TeachersPage")
+);
+const FavoritesPage = lazy(
+  () => import("../../pages/FavoritesPage/FavoritesPage")
+);
+const NotFoundPage = lazy(
+  () => import("../../pages/NotFoundPage/NotFoundPage")
+);
 
 function App() {
   return (
