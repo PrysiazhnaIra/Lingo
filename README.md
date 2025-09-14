@@ -8,6 +8,11 @@ This project is a React-based web application designed for a company that offers
 
 The platform connects students with professional language teachers for online lessons. It provides an intuitive interface for exploring teacher profiles, filtering based on preferences, and booking trial lessons.
 
+### Performance
+
+This is a perfect score, indicating that the website loads and performs optimally.
+![example](./public/extraData/seo.png "example")
+
 ### Features
 
 1. **Home Page**: Highlights company benefits and provides a call-to-action to explore teacher profiles.

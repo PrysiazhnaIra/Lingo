@@ -1,4 +1,4 @@
-import block from "../../../public/block.jpg";
+import block from "../../../public/block.webp";
 import css from "./Welcome.module.css";
 import { NavLink } from "react-router-dom";
 
